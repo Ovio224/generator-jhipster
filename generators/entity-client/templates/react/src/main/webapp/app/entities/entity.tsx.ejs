@@ -238,7 +238,8 @@ export const <%= entityReactName %> = (props: I<%= entityReactName %>Props) => {
       <h2 id="<%= entityFileName %>-heading">
         <Translate contentKey="<%= i18nKeyPrefix %>.home.title"><%= entityClassPluralHumanized %></Translate>
         <Tooltip placement="left" 
-          title={<Translate contentKey="<%= i18nKeyPrefix %>.home.createLabel"> Create new <%= entityClassHumanized %> </Translate>}
+          title={<Translate contentKey="<%= i18nKeyPrefix %>.home.createLabel"> Create new <%= entityClassHumanized %> </Translate>}>
+        
           <Fab onClick={addEntity} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity" color="secondary" >
             <AddIcon />
           </Fab>
