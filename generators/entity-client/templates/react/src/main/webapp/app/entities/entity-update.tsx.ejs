@@ -232,7 +232,7 @@ export const <%= entityReactName %>Update = (props: I<%= entityReactName %>Updat
     </Row>
     <Row className="justify-content-center">
       <Col md="8">
-        <Paper className={props.classes.paperRoot}
+        <Paper className={props.classes.paperRoot}>
           { loading ? <p>Loading...</p> :
           <AvForm model={isNew ? {} : <%= entityInstance %>Entity} onSubmit={saveEntity} >
             <%_ for (idx in fields) {
