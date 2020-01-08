@@ -27,7 +27,9 @@ if (field.fieldValidate === true) {
 
 
     if (rules.includes('required') && field.fieldType !== 'Boolean') {
-        validators.push('required: { value: true, errorMessage: translate(\'entity.validation.required\') }');
+        validators.push(`if(!values.${field.fieldName}) {\n 
+            errors.${field.fieldName} = translate(\'entity.validation.required\')\n
+        } `);
     }
     if (rules.includes('minlength')) {
         validators.push('minLength: { value: ' + field.fieldValidateRulesMinlength + ', errorMessage: translate(\'entity.validation.minlength\', { min: ' + field.fieldValidateRulesMinlength + ' }) }');
@@ -56,7 +58,7 @@ if (field.fieldValidate === true) {
     // }
 
     result = validators.join(',\n                ');
-    result = `validate={{\n                ${result}\n                }}`;
+    // result = `validate={{\n                ${result}\n                }}`;
 }
 -%>
 <%- result -%>

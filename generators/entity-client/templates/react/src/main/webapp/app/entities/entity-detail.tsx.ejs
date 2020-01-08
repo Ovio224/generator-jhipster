@@ -50,7 +50,7 @@ export const <%= entityReactName %>Detail = (props: I<%= entityReactName %>Detai
     props.getEntity(props.match.params.id);
   }, []);
 
-  goBack = () => {
+  const goBack = () => {
     props.history.goBack();
   };
 
@@ -174,10 +174,10 @@ export const <%= entityReactName %>Detail = (props: I<%= entityReactName %>Detai
             <%_ } _%>
             </dl>
           <div className="buttons-centered-mobile">
-            <Fab onClick={goBack} style={{ marginRight: '8px' }} replace color="default" size="small">
+            <Fab onClick={goBack} style={{ marginRight: '8px' }} color="default" size="small">
               <ArrowBackIcon />
             </Fab>
-            <Fab href={`/<%= entityFileName %>/${<%= entityInstance %>Entity.id}/edit`} style={{ marginRight: '8px' }} replace color="primary">
+            <Fab href={`/<%= entityFileName %>/${<%= entityInstance %>Entity.id}/edit`} style={{ marginRight: '8px' }} color="primary">
               <EditIcon />
             </Fab>
         </div>
