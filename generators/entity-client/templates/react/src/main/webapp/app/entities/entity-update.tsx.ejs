@@ -139,7 +139,8 @@ export const <%= entityReactName %>Update = (props: I<%= entityReactName %>Updat
   const stateInitial = {
     <%_ for (idx in fields) {
       fields[idx].fieldName: null
-    } _%>
+    _%>
+    <%_ } _%>
   }
 
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
@@ -258,7 +259,8 @@ export const <%= entityReactName %>Update = (props: I<%= entityReactName %>Updat
               const errors = {};
               <%_ for (idx in fields) {
                 <%- include react_validators %>
-              } _%>
+              _%>
+              <%_ } _%>
             }}>
             {({ errors, touched, isSubmitting, values, setFieldTouched }) => {
               const handleValueChange = (event, date) => {
