@@ -55,9 +55,7 @@ import {
   <%_ } _%>
   ICrudPutAction
 } from 'react-jhipster';
-<% if (fieldsContainBlob)
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-%>
 import { IRootState } from 'app/shared/reducers';
 
 <%_
@@ -137,9 +135,8 @@ export const <%= entityReactName %>Update = (props: I<%= entityReactName %>Updat
   <%_ }) _%>
 
   const stateInitial = {
-    <%_ for (idx in fields) {
+    <%_ for (idx in fields) { _%>
       fields[idx].fieldName: null
-    _%>
     <%_ } _%>
   }
 
@@ -257,9 +254,8 @@ export const <%= entityReactName %>Update = (props: I<%= entityReactName %>Updat
           <Formik enableReinitialize initialValues={isNew ? {} : <%= entityInstance %>Entity} onSubmit={saveEntity}
             validate={values => {
               const errors = {};
-              <%_ for (idx in fields) {
+              <%_ for (idx in fields) { _%>
                 <%- include react_validators %>
-              _%>
               <%_ } _%>
             }}>
             {({ errors, touched, isSubmitting, values, setFieldTouched }) => {
