@@ -135,9 +135,9 @@ export const <%= entityReactName %>Update = (props: I<%= entityReactName %>Updat
   <%_ }) _%>
 
   const stateInitial = {
-    <%_ for (idx in fields) { _%>
-      fields[idx].fieldName: null
-    <%_ } _%>
+    <% for (idx in fields) { %>
+      fields[idx].fieldName: null,
+    <% } %>
   }
 
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
@@ -255,6 +255,9 @@ export const <%= entityReactName %>Update = (props: I<%= entityReactName %>Updat
             validate={values => {
               const errors = {};
               <%_ for (idx in fields) { _%>
+                  const fieldType = fields[idx].fieldType;
+                  const fieldName = fields[idx].fieldName;
+                  const fieldNameHumanized = fields[idx].fieldNameHumanized;
                 <%- include react_validators %>
               <%_ } _%>
             }}>
