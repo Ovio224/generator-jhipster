@@ -22,7 +22,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 <%_ } _%>
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
-import { Fab, Button } from '@material-ui';
+import { Fab, Button, Tooltip } from '@material-ui/core';
 import SortIcon from '@material-ui/icons/Sort';
 import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -180,7 +180,7 @@ export const <%= entityReactName %> = (props: I<%= entityReactName %>Props) => {
   };
   <%_ } _%>
 
-  addEntity = () => {
+  const addEntity = () => {
     props.history.push(`${props.match.url}/new`);
   };
 
